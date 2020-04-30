@@ -1,4 +1,8 @@
-
+pipeline
+{
+agent any
+stages
+{
  stage('ContinuousDeployment') 
  {
       steps
@@ -53,6 +57,8 @@ stage('ContinuousDelivery')
                     mail bcc: '', body: 'not able to deploy into prod environment', cc: '', from: '', replyTo: '', subject: 'Prod deployment Failed in jenkins', to: 'productionteam@outlook.com'
                     exit(1)
                 }
-           }
-        }
-   }
+             }
+          }
+ 	}
+     }
+ }
