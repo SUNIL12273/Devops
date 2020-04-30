@@ -55,6 +55,4 @@ stage('ContinuousDelivery')
                 }
            }
         }
-      }
-    }
-}
+   }
