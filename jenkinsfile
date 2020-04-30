@@ -1,48 +1,4 @@
-pipeline
-{
-    agent any
-    stages
-    {
- stage('ContinuousDownload') 
- {
-     steps
-     {
-         script
-         {
-             try
-             {
-               git 'https://github.com/SUNIL12273/maven.git'  
-             }
-             catch(Exception e1)
-             {
-                 mail bcc: '', body: 'unable to download the code from github account', cc: '', from: '', replyTo: '', subject: 'Github Code is not Downloaded', to: 'developerteam@outlook.com'
-                 exit(1)
-             }
-             
-         }
-  
-     }
-}
-  stage('ContinuousBuild') 
- {
-     steps
-     {
-         script
-         {
-             try
-             {
-              sh label: '', script: 'mvn package'
-             }
-             catch(Exception e2)
-             {
-                 mail bcc: '', body: 'not able to generate build file war', cc: '', from: '', replyTo: '', subject: 'Build Processe failed', to: 'Itteam@outlook.com'
-                 exit(1)
-             }
-             
-         }
-        
-     }
- }
+
  stage('ContinuousDeployment') 
  {
       steps
